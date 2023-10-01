@@ -12,13 +12,6 @@ const Header = () => {
         getUser()
     }, [])
 
-    const loginorlogout = () => {
-        if (user) {
-            localStorage.clear()
-            window.localStorage.clear()
-        }
-        window.location = '/login'
-    }
 
     return (
         <header className="text-white body-font bg-gray-800">
@@ -38,16 +31,16 @@ const Header = () => {
                     <img className='hidden md:block' src="https://www.chess.com/favicon.ico" alt="" />
                     <span className=" text-xl text-gray-50">DigiBooking</span>
                 </Link>
-                <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
-                    <button onClick={loginorlogout} className="inline-flex items-center border-2 border-gray-400 py-1 px-3 focus:outline-none rounded-lg text-gray-50 cursor-pointer text-base">
+                <Link href="/logout" className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+                    <div className="inline-flex items-center border-2 border-gray-400 py-1 px-3 focus:outline-none rounded-lg text-gray-50 cursor-pointer text-base">
                         <div className='hidden md:block'>
                             {user ? "Logout" : "Login/Signup"}
                         </div>
                         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
-                    </button>
-                </div>
+                    </div>
+                </Link>
             </div>
         </header>
     )
