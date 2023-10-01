@@ -7,13 +7,15 @@ const Header = () => {
         const random = localStorage.getItem("user")
         setUser(JSON.parse(random))
     }
+    
     useEffect(() => {
         getUser()
     }, [])
+
     const loginorlogout = () => {
         if (user) {
-            localStorage.removeItem("token")
-            localStorage.removeItem("user")
+            localStorage.clear()
+            window.localStorage.clear()
         }
         window.location = '/login'
     }
